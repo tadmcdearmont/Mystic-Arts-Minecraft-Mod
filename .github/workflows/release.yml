@@ -1,0 +1,49 @@
+name: Build & Publish Mystic Arts Release
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17 (Temurin)
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Setup Gradle 8.3
+        uses: gradle/actions/setup-gradle@v3
+        with:
+          gradle-version: '8.3'
+
+      - name: Build Fabric 1.20.1 Mod JAR
+        run: gradle build --no-daemon --stacktrace
+
+      - name: Create Public GitHub Release & Upload JAR
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v1.0.0
+          name: "Mystic Arts Mod (Fabric 1.20.1) - v1.0.0"
+          body: |
+            ## Mystic Arts Mod for Minecraft 1.20.1 (Fabric)
+            Remake of RWTema's classic **The Monk Mod**.
+
+            ### Download & Installation:
+            1. Ensure you have **Minecraft 1.20.1**, **Fabric Loader**, and **Fabric API** installed.
+            2. Download `mysticarts-1.0.0.jar` below and drop it into your `.minecraft/mods` folder.
+          files: |
+            build/libs/*.jar
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
