@@ -1,0 +1,8 @@
+{
+  "item.mysticarts.mystic_codex": "Mystic Codex",
+  "gui.mysticarts.codex.title": "Mystic Codex of Martial Arts",
+  "key.mysticarts.blink": "Blink Teleportation",
+  "category.mysticarts.skills": "Mystic Arts",
+  "message.mysticarts.level_up": "Your inner ki ascends! You have unlocked Mystic Level %d: %s",
+  "message.mysticarts.ascetic_broken": "Warning: Wearing armor or wielding weapons disrupts your ascetic vows. Mystic perks disabled!"
+}
