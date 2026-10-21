@@ -32,15 +32,17 @@ jobs:
       - name: Create Public GitHub Release & Upload JAR
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: v1.0.0
-          name: "Mystic Arts Mod (Fabric 1.20.1) - v1.0.0"
+          tag_name: v1.0.1
+          name: "Mystic Arts Mod (Fabric 1.20.1) - v1.0.1"
           body: |
-            ## Mystic Arts Mod for Minecraft 1.20.1 (Fabric)
-            Remake of RWTema's classic **The Monk Mod**.
+            ## Mystic Arts Mod for Minecraft 1.20.1 (Fabric) - v1.0.1
+            Ascetic Monk Progression Remake of RWTema's The Monk Mod.
 
-            ### Download & Installation:
-            1. Ensure you have **Minecraft 1.20.1**, **Fabric Loader**, and **Fabric API** installed.
-            2. Download `mysticarts-1.0.0.jar` below and drop it into your `.minecraft/mods` folder.
+            ### Fixes in v1.0.1:
+            - **Crafting Recipe**: Shapeless crafting (1 Book + 2 Lapis Lazuli + 1 Leather) yields Mystic Codex.
+            - **Item Texture**: Resolved purple/black missing texture with enchanted glowing book model.
+            - **Codex GUI**: Interactive dual-page GUI displaying 20 levels of ascetic lore, trials, live progress bars, unlocked perks, and vow status.
+            - **Action Bar Feedback**: Punching logs bare-handed now shows real-time Action Bar HUD (`[Mystic Arts] Fist of Oak: X / 10 Logs`) with sound cues and level up fanfare!
           files: |
             build/libs/*.jar
           draft: false
